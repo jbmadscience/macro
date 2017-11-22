@@ -12,22 +12,23 @@
           <label for="carb">Carbohydrate (g):</label>
           <input v-model.number="carbohydrateGrams" name="carb" type="number"/>
         </p>
-        <p>Carbohydrate: {{carbohydratePercent}}</p>
+        <p>Carbohydrate: {{carbohydratePercent | percent}}</p>
       </li>
       <li>
         <p>
           <label for="fat">Fat (g):</label>
           <input v-model.number="fatGrams" name="fat" type="number"/></p>
-        <p>Fat: {{fatPercent}}</p>
+        <p>Fat: {{fatPercent | percent}}</p>
       </li>
       <li>
         <p>
           <label for="protein">Protein (g):</label>
           <input v-model.number="proteinGrams" name="protein" type="number"/>
         </p>
-        <p>Protein: {{proteinPercent}}</p>
+        <p>Protein: {{proteinPercent | percent}}</p>
       </li>
     </ol>
+    <button id="clearButton" v-on:click="clear"/>
   </div>
 
   <script lang="javascript" src="view.js"></script>

@@ -17,6 +17,11 @@
         };
     };
 
+    var safeDivide = function (dividend, divisor) {
+        var result = dividend/divisor;
+        return (isNaN(result)) ? 0 : result;
+    };
+
     var app = new Vue({
         el: '#app',
         data: {
@@ -25,15 +30,40 @@
             proteinGrams: 2,            
         },
         computed: {
+            carbohydrateCalories: function() {
+                return this.carbohydrateGrams*4;
+            },
+            fatCalories: function() {
+                return this.fatGrams*9;
+            },
+            proteinCalories: function() {
+                return this.proteinGrams*4;
+            },
+            totalCalories: function() {
+                return this.carbohydrateCalories + this.fatCalories + this.proteinCalories;
+            },
             carbohydratePercent: function() {
-                return calculatePercents(this.carbohydrateGrams, this.fatGrams, this.proteinGrams).carbohydratePercent;
+                return safeDivide(this.carbohydrateCalories, this.totalCalories);
             },
             fatPercent: function() {
-                return calculatePercents(this.carbohydrateGrams, this.fatGrams, this.proteinGrams).fatPercent;
+                return safeDivide(this.fatCalories, this.totalCalories);
             },
             proteinPercent: function() {
-                return calculatePercents(this.carbohydrateGrams, this.fatGrams, this.proteinGrams).proteinPercent;
+                return safeDivide(this.proteinCalories, this.totalCalories);
+            }
+        },
+        filters: {
+            percent: function(value) {
+                return (value*100).toFixed(2) + "%";
+            }
+        },
+        methods: {
+            clear: function() {
+                this.carbohydrateGrams = 0;
+                this.fatGrams = 0;
+                this.proteinGrams = 0;
             }
         }
+
     });
 
