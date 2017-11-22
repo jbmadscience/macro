@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Macro Percents</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <ol>
+      <li>
+        <p>
+          <label for="carb">Carbohydrate (g):</label>
+          <input v-model.number="carbohydrateGrams" name="carb" type="number"/>
+        </p>
+        <p>Carbohydrate: {{carbohydratePercent}}</p>
+      </li>
+      <li>
+        <p>
+          <label for="fat">Fat (g):</label>
+          <input v-model.number="fatGrams" name="fat" type="number"/></p>
+        <p>Fat: {{fatPercent}}</p>
+      </li>
+      <li>
+        <p>
+          <label for="protein">Protein (g):</label>
+          <input v-model.number="proteinGrams" name="protein" type="number"/>
+        </p>
+        <p>Protein: {{proteinPercent}}</p>
+      </li>
+    </ol>
+  </div>
+
+  <script lang="javascript" src="view.js"></script>
+</body>
+</html>
