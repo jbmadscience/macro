@@ -1,36 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
   <title>Macro Percents</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
   <script src="https://unpkg.com/vue"></script>
 </head>
+
 <body>
-  <div id="app">
-    <ol>
-      <li>
-        <p>
-          <label for="carb">Carbohydrate (g):</label>
-          <input v-model.number="carbohydrateGrams" name="carb" type="number"/>
-        </p>
-        <p>Carbohydrate: {{carbohydratePercent | percent}}</p>
-      </li>
-      <li>
-        <p>
-          <label for="fat">Fat (g):</label>
-          <input v-model.number="fatGrams" name="fat" type="number"/></p>
-        <p>Fat: {{fatPercent | percent}}</p>
-      </li>
-      <li>
-        <p>
-          <label for="protein">Protein (g):</label>
-          <input v-model.number="proteinGrams" name="protein" type="number"/>
-        </p>
-        <p>Protein: {{proteinPercent | percent}}</p>
-      </li>
-    </ol>
-    <button id="clearButton" v-on:click="clear"/>
+  <div id="app" class="container-fluid">
+    <h1 class="bg-info">Macronutrients
+      <p>
+        <small>Percent Calculator</small>
+      </p>
+    </h1>
+    <form>
+      <div class="form-group">
+        <label for="carb" class="control-label">Carbohydrate (g):</label>
+        <input v-model.number="carbohydrateGrams" name="carb" class="form-control" placeholder="Carbohydrate in Grams (4 calories/gram)"
+          type="number" />
+      </div>
+      <div class="form-group">
+        <label for="fat" class="control-label">Fat (g):</label>
+        <input v-model.number="fatGrams" name="fat" class="form-control" placeholder="Fat in Grams (9 calories/gram)" type="number"
+        />
+      </div>
+      <div class="form-group">
+        <label for="protein" class="control-label">Protein (g):</label>
+        <input v-model.number="proteinGrams" name="protein" class="form-control" placeholder="Protein in Grams (4 calories/gram)"
+          type="number" />
+      </div>
+    </form>
+    <h2>Macronutrient Percents</h2>
+    <table class="table">
+      <tr>
+        <th>Nutrient</th>
+        <th>Percent</th>
+      </tr>
+      <tr>
+        <td>Carbohydrate</td>
+        <td>{{carbohydratePercent | percent}}</td>
+      </tr>
+      <tr>
+        <td>Fat</td>
+        <td>{{fatPercent | percent}}</td>
+      </tr>
+      <tr>
+        <td>Protein</td>
+        <td>{{proteinPercent | percent}}</td>
+      </tr>
+    </table>
+    <div class="form-group">
+      <button id="clearButton" v-on:click="clear" class="btn btn-primary btn-block pull-right">Clear</button>
+    </div>
   </div>
 
   <script lang="javascript" src="view.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

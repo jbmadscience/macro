@@ -25,9 +25,9 @@
     var app = new Vue({
         el: '#app',
         data: {
-            carbohydrateGrams: 2,            
-            fatGrams: 6,            
-            proteinGrams: 2,            
+            carbohydrateGrams: "",            
+            fatGrams: "",            
+            proteinGrams: "",            
         },
         computed: {
             carbohydrateCalories: function() {
