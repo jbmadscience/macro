@@ -9,22 +9,20 @@
 
   <title>Macro Percents</title>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">
   <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
   <div id="app" class="container-fluid">
-    <h1 class="bg-info">Macronutrients
+    <h1>Macronutrients
       <p>
         <small>Percent Calculator</small>
       </p>
     </h1>
-    <form>
+    <form class="form-horizontal">
       <div class="form-group">
         <label for="carb" class="control-label">Carbohydrate (g):</label>
         <input v-model.number="carbohydrateGrams" name="carb" class="form-control" placeholder="Carbohydrate in Grams (4 calories/gram)"
@@ -42,11 +40,14 @@
       </div>
     </form>
     <h2>Macronutrient Percents</h2>
-    <table class="table">
-      <tr>
-        <th>Nutrient</th>
-        <th>Percent</th>
-      </tr>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Nutrient</th>
+          <th>Percent</th>
+        </tr>
+      </thead>
+      <tbody>
       <tr>
         <td>Carbohydrate</td>
         <td>{{carbohydratePercent | percent}}</td>
@@ -59,9 +60,10 @@
         <td>Protein</td>
         <td>{{proteinPercent | percent}}</td>
       </tr>
+      </tbody>
     </table>
-    <div class="form-group">
-      <button id="clearButton" v-on:click="clear" class="btn btn-primary btn-block pull-right">Clear</button>
+    <div class="row">
+      <button id="clearButton" v-on:click="clear" class="btn btn-primary btn-block">Clear</button>
     </div>
   </div>
 
